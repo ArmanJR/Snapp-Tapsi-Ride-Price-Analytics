@@ -1,6 +1,6 @@
 # Snapp/Tapsi Ride Price Analytics
 This project is a combo of a price checker and a price analytics scripts for Snapp and Tapsi ride-hailing services in Iran. 
-The tool is written in Python and uses the Selenium library to scrape the prices of rides from the Snapp and Tapsi APIs and then check the prices of rides between two locations (one fixed destination and multiple origin candidates) at different times of the day and on different days of the week. 
+The tool fetches the prices of rides from the Snapp and Tapsi APIs and then check the prices between two locations (one fixed destination and multiple origin candidates) at different times of the day and on different days of the week. 
 This can also be used to analyze the price trends of rides over time and to compare the prices of rides between different locations. 
 It can be used to help users make informed decisions about when and where to take a ride and to save money on ride-hailing services.
 
