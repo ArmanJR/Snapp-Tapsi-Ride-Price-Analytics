@@ -1,0 +1,41 @@
+name: Update Results
+
+on:
+  schedule:
+    - cron: '0,15,30,45 14-19 * * *'
+
+jobs:
+  update-results:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+          
+      - name: Install requests package
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Install pytz package
+        run: |
+          pip install pytz
+
+      - name: Run script and update results
+        run: |
+          python main.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'workflow'
+          git config --global user.email 'workflow@example.com'
+          git add results.csv
+          git commit -m "Update results.csv"
+          git push
